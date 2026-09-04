@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garagem Custom - Motos Customizadas</title>
+    <style>
+        /* Variáveis de cores para os temas */
+        .dark-theme {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #ffffff;
+            --accent-color: #ff4500;
+            --btn-text: #ffffff;
+        }
+
+        .light-theme {
+            --bg-color: #f4f4f9;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --accent-color: #d32f2f;
+            --btn-text: #ffffff;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transition: background-color 0.3s;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        button {
+            background-color: var(--accent-color);
+            color: var(--btn-text);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            transition: opacity 0.2s;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+    </style>
+</head>
+<body class="dark-theme">
+
+    <header>
+        <h1>Garagem Custom</h1>
+        <button id="theme-toggle">Alternar Tema</button>
+    </header>
+
+    <main>
+        <section class="card">
+            <img id="project-img" src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=600&auto=format&fit=crop" alt="Moto Customizada">
+            <h2>Projeto da Semana</h2>
+            <p>Confira os detalhes da última modificação realizada na oficina.</p>
+            <button id="action-btn">Ver Detalhes</button>
+        </section>
+    </main>
+
+    <script>
+        // Alternar Tema Claro/Escuro
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (body.classList.contains('dark-theme')) {
+                body.classList.remove('dark-theme');
+                body.classList.add('light-theme');
+            } else {
+                body.classList.remove('light-theme');
+                body.classList.add('dark-theme');
+            }
+        });
+
+        // Ação do Botão Principal
+        const actionBtn = document.getElementById('action-btn');
+
+        actionBtn.addEventListener('click', () => {
+            alert('Projeto selecionado! Carregando especificações técnicas...');
+        });
+    </script>
+</body>
+</html>
